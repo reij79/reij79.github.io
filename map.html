@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mapbox Map</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/geojson-extent/v0.0.1/geojson-extent.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel="stylesheet" />
+<style>
+
+#map {
+        height: 100%;
+		width: 80%
+      }
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown-content {
+    //display: none;
+    position: absolute;
+    background-color: rgba(0,0,0,0);
+    min-width: 40px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 12px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content img {
+	width:24px; height:24px;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(0,0,0,0);
+}
+
+.show {
+    display: block;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 80%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.5); /* Fallback color */
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+	//color: 'white';
+	overflow: auto;
+	font-family: "Arial", Helvetica, sans-serif;
+    //margin: 5% auto; /* 15% from the top and centered */
+    margin: 10px auto;
+	//padding: 10px;
+    border: 1px solid #888;
+	height: 80%;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.modal-header {
+    //background-color: rgba(0,0,0,0.5);
+	color: white;
+	background-color: black;
+	padding: 10px;
+}
+
+.modal-body {
+    //background-color: #fefefe;
+	color: 'white';
+	font-size: 0.8em;
+    margin: 10px auto; /* 15% from the top and centered */
+    padding: 10px;
+    //border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.modal-map {
+    background-color: #fefefe;
+    //margin: 1% auto; /* 15% from the top and centered */
+    margin:10px auto;
+	//overflow: visible;
+	//padding: 10px 10px;
+    //border: 1px solid #888;
+	//height: 300px;
+    //width: 400px; /* Could be more or less, depending on screen size */
+	height:50%;
+	width: 80%;
+	}
+
+	
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+	padding-right: 10px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+img.myHeader { height: 24px; width: 24x; margin-right: 4px; }
+h4.myHeader { display:inline; }
+
+.show {
+    display: block;
+}
+
+.content {
+    position: absolute;
+    width: 20%;
+    top: 0;
+    bottom: 0;
+    left: 80%;
+	//padding: 8px ;
+    font: 0.8em 'Arial', Helvetica, sans-serif;
+    background-color: #fff;
+    max-height: 100%;
+    overflow: auto;
+}
+
+@media only screen and (max-device-width: 480px) {
+
+#map {
+	width: 100%;
+	height: 80%;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 4px 4px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 80%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.5); /* Fallback color */
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+	overflow: auto;
+	font-family: "Arial", Helvetica, sans-serif;
+    //margin: 5% auto; /* 15% from the top and centered */
+    margin: 10px auto;
+	//padding: 10px;
+    border: 1px solid #888;
+	height: 90%;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.content {
+    position: absolute;
+    width: 100%;
+    top: 80%;
+    //bottom: 20%;
+    left: 0%;
+	//margin: 8px auto;
+    font: 0.8em 'Arial', Helvetica, sans-serif;
+    background-color: #fff;
+    max-height: 20%;
+    overflow: auto;
+}
+
+}
+
+.content li {
+  list-style-type: none;
+}
+
+.modal-body li {
+  list-style-type: none;
+}
+
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+	  
+</style>
+</head>
+<body> 
+
+     <div class="dropdown-content" id="myDropdown">
+      <a href="#" class="image" onclick="toggleLayer('Community Services')"><img src="/media/community.png" alt="Community Icon" /></a>
+      <a href="#" class="image" onclick="toggleLayer('Education')"><img src="/media/education.png" alt="Education Icon" /></a>
+	  <a href="#" class="image" onclick="toggleLayer('Government Services')"><img src="/media/government.png" alt="Government Icon" /></a>
+	  <a href="#" class="image" onclick="toggleLayer('Health')"><img src="/media/health.png" alt="Health Icon" /></a>
+	  <a href="#" class="image" onclick="toggleLayer('Police and Justice')"><img src="/media/justice.png" alt="Justice Icon" /></a>
+	  <a href="#" class="image" onclick="toggleLayer('Roads')"><img src="/media/roads.png" alt="Roads Icon" /></a>
+	  <a href="#" class="image" onclick="toggleLayer('Transport')"><img src="/media/transport.png" alt="Transport Icon" /></a>
+	  <a href="#" class="image" onclick="toggleLayer('Utilities')"><img src="/media/utilities.png" alt="Utilities Icon" /></a>
+    </div>
+ <div id='map'></div>
+ <div id='feature' class='content'></div>
+<script>
+mapboxgl.accessToken="pk.eyJ1IjoicmVpajc5IiwiYSI6ImNqZjRwa2lnMzBwYTIycXA0Y2dzd3RjamwifQ.PqGdWsnJKIb6LcMAuqsmSQ";var bbox=[[140,-40],[160,-26]],popup=new mapboxgl.Popup({closeButton:!1}),map=new mapboxgl.Map({container:"map",style:"mapbox://styles/mapbox/light-v9",zoom:1,minZoom:1,maxZoom:13,maxBounds:bbox});
+map.on("load",function(){map.addSource("project",{type:"geojson",data:"/data/point.json"});for(var a="Community Services;Education;Government Services;Health;Police and Justice;Roads;Transport;Utilities".split(";"),c=0;c<a.length;c++)map.addLayer({id:a[c],type:"circle",source:"project",paint:{"circle-radius":{base:6,stops:[[5,6],[13,10]]},"circle-color":cat2Color(a[c])},filter:["==","Category",a[c]]});map.addControl(new mapboxgl.NavigationControl({showCompass:!1}),"bottom-left");map.on("mousemove",
+"project",function(a){map.getCanvas().style.cursor="pointer";popup.remove();a=a.features[0];popup.setLngLat(a.geometry.coordinates).setText(a.properties.ProjectName).addTo(map)});map.on("mouseleave","project",function(){map.getCanvas().style.cursor="";popup.remove()});map.on("moveend",function(){var a=map.queryRenderedFeatures({layers:"Community Services;Education;Government Services;Health;Police and Justice;Roads;Transport;Utilities".split(";")});a&&(a=getUniqueFeatures(a,"ProjectName"),a.sort(function(a,
+"project",function(a){map.getCanvas().style.cursor="pointer";popup.remove();a=a.features[0];popup.setLngLat(a.geometry.coordinates).setText(a.properties.ProjectName).addTo(map)});map.on("mouseleave","project",function(){map.getCanvas().style.cursor="";popup.remove()});map.on("moveend",function(){var a=map.queryRenderedFeatures({layers:"Community Services;Education;Government Services;Health;Police and Justice;Roads;Transport;Utilities".split(";")});a&&(a=getUniqueFeatures(a,"ProjectName"),a.sort(function(a,
+c){var b=a.properties.ProjectName.toUpperCase(),f=c.properties.ProjectName.toUpperCase();return b<f?-1:b>f?1:0}),renderListings(a))});renderListings([])});
+function cat2Color(a){switch(a){case "Community Services":icon="#488645";break;case "Education":icon="#FFCB05";break;case "Government Services":icon="#E377A5";break;case "Health":icon="#ED1C24";break;case "Police and Justice":icon="#2E3192";break;case "Roads":icon="#F15A22";break;case "Transport":icon="#2484C6";break;case "Utilities":icon="#92C5EB";break;default:icon="#ccc"}return icon}function isNull(a){return"null"!=a?Number(a).toLocaleString():"<i>N/A</i>"}
+function toggleLayer(a){for(var c="Community Services;Education;Government Services;Health;Police and Justice;Roads;Transport;Utilities".split(";"),b=0;b<c.length;b++)c[b]==a||"Refresh"==a?map.setLayoutProperty(c[b],"visibility","visible"):map.setLayoutProperty(c[b],"visibility","none");setBounds(a)}
+function setBounds(a){if("Refresh"!=a){var c=new mapboxgl.LngLatBounds;$.getJSON("/data/point.json",function(b){$.each(b.features,function(b,d){if(null!=d.geometry&&d.properties.Category==a)if("MultiPoint"==d.geometry.type)for(;0<d.geometry.length;)return c.extend(d[0].geometry.coordinates);else return c.extend(d.geometry.coordinates)});map.fitBounds(c,{padding:50})})}}
+function setProject(a){popup.remove();var c="<li><b>Agency Name: </b>"+a.properties.AgencyName+"<br><li><b>Budget Year ($000): </b>"+isNull(a.properties.Allocation201718)+"<br><li><b>Estimated Total Cost ($000): </b>"+isNull(a.properties.ETC);$("#myText").text(a.properties.ProjectName);$("#myBody").html(c);$("#myContent").css("color","white");$("#myContent").css("background-color",cat2Color(a.properties.Category));var b=new mapboxgl.Map({container:"myMap",style:"mapbox://styles/mapbox/streets-v9",
+zoom:1,minZoom:1,maxZoom:13});b.on("load",function(){b.addSource("project",{type:"geojson",data:"/data/point.json"});b.addLayer({id:"ProjectName",type:"circle",source:"project",paint:{"circle-radius":{base:8,stops:[[1,8],[13,8]]},"circle-color":cat2Color(a.properties.Category)},filter:["==","ProjectName",a.properties.ProjectName]})});var f=new mapboxgl.LngLatBounds,d=-50,g=0,h=0,k=200;$.getJSON("/data/point.json",function(c){$.each(c.features,function(c,b){if(null!=b.geometry&&
+b.properties.ProjectName==a.properties.ProjectName){if("MultiPoint"==b.geometry.type){for(var e=0;e<b.geometry.coordinates.length;e++)b.geometry.coordinates[e][0]>=g&&(g=b.geometry.coordinates[e][0]),b.geometry.coordinates[e][0]<=k&&(k=b.geometry.coordinates[e][0]),b.geometry.coordinates[e][1]<=h&&(h=b.geometry.coordinates[e][1]),b.geometry.coordinates[e][1]>=d&&(d=b.geometry.coordinates[e][1]);return f.extend([[k,h],[g,d]])}return f.extend(b.geometry.coordinates)}});b.fitBounds(f,{animate:false, padding:50})});
+modal.style.display="block";b.resize()}var listingEl=document.getElementById("feature");
+function renderListings(a){listingEl.innerHTML="";a.length?a.forEach(function(a){var b=a.properties,c=document.createElement("li");c.innerHTML="<b>"+b.ProjectName+"</b>";c.style.color="white";c.style.backgroundColor=cat2Color(a.properties.Category);c.style.padding="8px 8px";c.addEventListener("mouseover",function(){"MultiPoint"==a.geometry.type?popup.setLngLat(a.geometry.coordinates[0]).setHTML("<h3>"+a.properties.ProjectName+"</h3><ul><li>Agency: <b>"+a.properties.AgencyName+"</b></li><li>Budget Year ($000): <b>"+
+isNull(a.properties.Allocation201718)+"</b></li><li>Estimated Total Cost ($000): <b>"+isNull(a.properties.ETC)+"</b></li>").addTo(map):popup.setLngLat(a.geometry.coordinates).setHTML("<h3>"+a.properties.ProjectName+"</h3><ul><li>Agency: <b>"+a.properties.AgencyName+"</b></li><li>Budget Year ($000): <b>"+isNull(a.properties.Allocation201718)+"</b></li><li>Estimated Total Cost ($000): <b>"+isNull(a.properties.ETC)+"</b></li>").addTo(map)});c.addEventListener("click",function(){setProject(a)});listingEl.appendChild(c)}):
+(a=document.createElement("p"),a.textContent="Drag the map to populate results",listingEl.appendChild(a))}function normalize(a){return a.trim().toLowerCase()}function getUniqueFeatures(a,c){var b={};return a.filter(function(a){return b[a.properties[c]]?!1:b[a.properties[c]]=!0})};
+</script>
+<div id="myModal" class="modal">
+ <div class="modal-content" id="myContent">
+  <div class="modal-header">
+   <span class="close">&times;</span>
+	<header class="myHeader">
+	 <img class="myHeader" id="myImage"><h4 class="myHeader" id="myText"></h4>
+	</header>
+  </div>	
+	<div class="modal-body" id="myBody"></div>
+	<div class="modal-map" id="myMap"></div>
+ </div>
+</div>
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}	
+</script>
+</body>
+</html>
