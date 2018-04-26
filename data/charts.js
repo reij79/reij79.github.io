@@ -1,7 +1,7 @@
 function chart1() {
 //With credit to https://forum.highcharts.com/highcharts-usage/treemap-using-csv-t36898/
 $.ajax({
-    url: 'http://tsypoc.ddns.net/data/tree.csv',
+    url: '/data/tree.csv',
     success: function (csv) {	
 
 	$('#chart1').highcharts({
@@ -70,7 +70,7 @@ $.ajax({
 
 function chart2() {	
 $.ajax({
-    url: 'http://tsypoc.ddns.net/data/3.1.csv',
+    url: '/data/3.1.csv',
     success: function (csv) {	
 	
 	
@@ -117,7 +117,7 @@ $.ajax({
 
 function chart3() {
 $.ajax({
-    url: 'http://tsypoc.ddns.net/data/3.3.csv',
+    url: '/data/3.3.csv',
     success: function (csv) {	
 	
 	
@@ -177,7 +177,7 @@ $.ajax({
 
 function chart4 () {
 $.ajax({
-    url: 'http://tsypoc.ddns.net/data/3.9.csv',
+    url: '/data/3.9.csv',
     success: function (csv) {	
 	
 	
@@ -241,7 +241,7 @@ $.ajax({
 
 function chart5() {
 $.ajax({
-    url: 'http://tsypoc.ddns.net/data/3.10.csv',
+    url: '/data/3.10.csv',
     success: function (csv) {	
 
 	$('#chart5').highcharts({	
