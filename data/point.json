@@ -1,5 +1,3 @@
-var budget = {
-
 {
 	"name" : "data",
 	"type" : "FeatureCollection",
@@ -14200,5 +14198,4 @@ var budget = {
 			}
 		}
 	]
-}
 }
