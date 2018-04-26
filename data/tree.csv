@@ -1,0 +1,49 @@
+Account,ID,Parent,Value
+Net Operating Balance,Net Operating Balance,,2698281
+Revenue,Revenue,Net Operating Balance,79884690
+Taxation,Taxation,Revenue,31559995
+Payroll Tax,,Taxation,8635057
+Stamp Duties,Stamp Duties,Taxation,11460102
+Transfer Duty,,Stamp Duties,9699002
+Insurance Duty,,Stamp Duties,927000
+Motor Vehicle,,Stamp Duties,834000
+Other Duties,,Stamp Duties,100
+Land Tax,,Taxation,3685181
+Gambling and Betting Taxes,,Taxation,2334276
+Motor Vehicle Taxes,,Taxation,2616000
+Other Taxes and Levies,Other Taxes and Levies,Taxation,2829379
+Health Insurance Levy,,Other Taxes and Levies,207000
+Parking Space Levy,,Other Taxes and Levies,106000
+Emergency Services Insurance Levy,,Other Taxes and Levies,793905
+Waste and Environment Levies,,Other Taxes and Levies,565043
+Government Guarantee Fee,,Other Taxes and Levies,318819
+Private Transport Operators Levy,,Other Taxes and Levies,67698
+Pollution Control Licences,,Other Taxes and Levies,29100
+Other Taxes,,Other Taxes and Levies,741814
+Grants and Subsidies Revenue,,Revenue,31859764
+Sale of Goods and Services,,Revenue,8976112
+Interest Revenue,,Revenue,413323
+Dividend and Income Tax Equivalents from Other Sectors,,Revenue,1620088
+Other Dividends and Distributions,,Revenue,1016163
+Fines, Regulatory Fees and Other Revenue,,Revenue,4439244
+Expenses,Expenses,Net Operating Balance,77186409
+Employee Expenses,,Expenses,31483223
+Superannuation Interest Cost,,Expenses,1464674
+Other Superannuation,,Expenses,3008951
+Depreciation and Amortisation,,Expenses,4937357
+Interest Expenses,,Expenses,2094143
+Other Operating Expenses,Other Operating Expenses,Expenses,19627043
+Operating Lease Rentals,,Other Operating Expenses,763280
+Consultancy Fees,,Other Operating Expenses,144183
+Privatisation Costs and Fees,,Other Operating Expenses,75000
+Contractor Fees,,Other Operating Expenses,1849927
+Inventories Used Up,,Other Operating Expenses,16111
+Audit Costs - Financial,,Other Operating Expenses,4516
+Audit Costs - Other,,Other Operating Expenses,6740
+Insurance Claims Expense,,Other Operating Expenses,581317
+Supplies and Other Services,,Other Operating Expenses,6836222
+Non Employee Provisions,,Other Operating Expenses,1983
+Bad Debts Written Off,,Other Operating Expenses,44069
+Operating Expenses - Other,,Other Operating Expenses,7246203
+Maintenance Excluding Salaries,,Other Operating Expenses,2057493
+Grants, Subsidies and Other Transfer Expenses,,Expenses,14571017
