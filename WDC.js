@@ -2,24 +2,6 @@
     var myConnector = tableau.makeConnector();
 
     myConnector.getSchema = function (schemaCallback) {
-
-    };
-
-    myConnector.getData = function (table, doneCallback) {
-
-    };
-
-    tableau.registerConnector(myConnector);
-})();
-
-$(document).ready(function () {
-    $("#submitButton").click(function () {
-        tableau.connectionName = "USGS Earthquake Feed";
-        tableau.submit();
-    });
-});
-
-myConnector.getSchema = function (schemaCallback) {
     var cols = [{
         id: "id",
         dataType: tableau.dataTypeEnum.string
@@ -43,9 +25,9 @@ myConnector.getSchema = function (schemaCallback) {
     };
 
     schemaCallback([tableSchema]);
-};
+    };
 
-myConnector.getData = function(table, doneCallback) {
+    myConnector.getData = function(table, doneCallback) {
     $.getJSON("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson", function(resp) {
         var feat = resp.features,
             tableData = [];
@@ -64,3 +46,16 @@ myConnector.getData = function(table, doneCallback) {
         doneCallback();
     });
 };
+
+    tableau.registerConnector(myConnector);
+})();
+
+$(document).ready(function () {
+    $("#submitButton").click(function () {
+        tableau.connectionName = "USGS Earthquake Feed";
+        tableau.submit();
+    });
+});
+
+
+
