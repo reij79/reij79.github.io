@@ -68,11 +68,11 @@
             MEASURE = resp.structure.dimensions.observation[0].values[arrKey[0]].name;
             INDEX = resp.structure.dimensions.observation[1].values[arrKey[1]].name;
             SECTOR = resp.structure.dimensions.observation[2].values[arrKey[2]].name;
-            INDUSTRY = resp.structure.dimensions.observation[2].values[arrKey[2]].name;
-            REGION = resp.structure.dimensions.observation[2].values[arrKey[2]].name;
-            TSEST = resp.structure.dimensions.observation[3].values[arrKey[3]].name;
-            FREQUENCY = resp.structure.dimensions.observation[4].values[arrKey[4]].name;
-            TIME_PERIOD = resp.structure.dimensions.observation[5].values[arrKey[5]].name;
+            INDUSTRY = resp.structure.dimensions.observation[3].values[arrKey[3]].name;
+            REGION = resp.structure.dimensions.observation[4].values[arrKey[4]].name;
+            TSEST = resp.structure.dimensions.observation[5].values[arrKey[5]].name;
+            FREQUENCY = resp.structure.dimensions.observation[6].values[arrKey[6]].name;
+            TIME_PERIOD = resp.structure.dimensions.observation[7].values[arrKey[7]].name;
             obs = feat[Object.keys(feat)[i]][0]; 
 
                 
