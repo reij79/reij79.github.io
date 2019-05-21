@@ -63,8 +63,8 @@
             VEHICLE = resp.structure.dimensions.observation[1].values[arrKey[1]].name;
             ASGS_2011 = resp.structure.dimensions.observation[2].values[arrKey[2]].name;
             TSEST = resp.structure.dimensions.observation[3].values[arrKey[3]].name;
-            FREQUENCY = resp.structure.dimensions.observation[3].values[arrKey[4]].name;
-            TIME_PERIOD = resp.structure.dimensions.observation[4].values[arrKey[5]].name;
+            FREQUENCY = resp.structure.dimensions.observation[4].values[arrKey[4]].name;
+            TIME_PERIOD = resp.structure.dimensions.observation[5].values[arrKey[5]].name;
             obs = feat[Object.keys(feat)[i]][0]; 
 
                 
