@@ -4,6 +4,9 @@
 
     myConnector.getSchema = function (schemaCallback) {
     var cols = [{
+        id: "id",
+        dataType: tableau.dataTypeEnum.string
+    }, {
         id: "name",
         dataType: tableau.dataTypeEnum.string
     }, {
@@ -32,6 +35,7 @@
         // Iterate over the JSON object
         for (var i = 0, len = feat.length; i < len; i++) {
             tableData.push({
+                "id": feat[i].id,
                 "name": feat[i].properties.name,
                 "streetaddress": feat[i].properties.streetaddress,
                 "location": feat[i].geometry
@@ -48,7 +52,7 @@
 
 $(document).ready(function () {
     $("#submitButton").click(function () {
-        tableau.connectionName = "USGS Earthquake Feed";
+        tableau.connectionName = "ABC Local";
         tableau.submit();
     });
 });
