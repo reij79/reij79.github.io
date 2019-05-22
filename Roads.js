@@ -56,7 +56,7 @@
         $.ajax({
             url: url,
             type: 'GET',
-            dataType: 'json',
+            //dataType: 'json',
             success: function(resp) {
             var feat = resp.features,
             tableData = [];
