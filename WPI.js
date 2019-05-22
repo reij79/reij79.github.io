@@ -57,7 +57,7 @@
         obs = 0;
 
 
-        $.getJSON("http://10.83.75.3:9090?http://stat.data.abs.gov.au/sdmx-json/data/LABOUR_PRICE_INDEX/2.THRPEB.1+2+7.-.1.10+20+30.Q/all?detail=Full&dimensionAtObservation=AllDimensions", function(resp) {
+        $.getJSON("http://cors.io/?http://stat.data.abs.gov.au/sdmx-json/data/LABOUR_PRICE_INDEX/2.THRPEB.1+2+7.-.1.10+20+30.Q/all?detail=Full&dimensionAtObservation=AllDimensions", function(resp) {
             var feat = resp.dataSets[0].observations;
     
             // Iterate over the JSON object
