@@ -85,7 +85,7 @@
     });
 
     function setHeader(xhr) {
-        xhr.setRequestHeader('Authorization', 'apikey o10JorpdwvgF9yVK6TZVmLnahdB4UtNz1dO1');
+        xhr.setRequestHeader('Authorization', 'apikey ak123');
         xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://reij79.github.io');
         }
 
