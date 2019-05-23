@@ -96,6 +96,7 @@
 
             table.appendRows(tableData);
             doneCallback();
+	    },
         });
     };
 
