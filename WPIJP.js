@@ -52,6 +52,12 @@
         $.ajax({
             url: 'http://stat.data.abs.gov.au/sdmx-json/data/LABOUR_PRICE_INDEX/2.THRPEB.1+2+7.-.1.10+20+30.Q/all?detail=Full&dimensionAtObservation=AllDimensions',
             dataType: 'json',
+	    headers: {
+    'Access-Control-Allow-Credentials' : true,
+    'Access-Control-Allow-Origin':'*',
+    'Access-Control-Allow-Methods':'GET',
+    'Access-Control-Allow-Headers':'application/json',
+  },
             success: function(resp) {
 		    
 	    var tableData = [],
