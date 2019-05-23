@@ -45,16 +45,7 @@
 
     myConnector.getData = function(table, doneCallback) {
 
-        var tableData = [],
-        MEASURE = "",
-        INDEX = "",
-        SECTOR = "",
-        INDUSTRY = "",
-        REGION = "",
-        TSEST = "",
-        FREQUENCY = "",
-        TIME_PERIOD = "",
-        obs = 0;
+        
 
         var url = "http://stat.data.abs.gov.au/sdmx-json/data/LABOUR_PRICE_INDEX/2.THRPEB.1+2+7.-.1.10+20+30.Q/all?detail=Full&dimensionAtObservation=AllDimensions"
 
@@ -63,6 +54,19 @@
             type: 'GET',
             dataType: 'jsonp',
             success: function(resp) {
+		    
+	    var tableData = [],
+        MEASURE = "",
+        INDEX = "",
+        SECTOR = "",
+        INDUSTRY = "",
+        REGION = "",
+        TSEST = "",
+        FREQUENCY = "",
+        TIME_PERIOD = "",
+        obs = 0;    
+		    
+		    
             var feat = resp.dataSets[0].observations;
     
             // Iterate over the JSON object
