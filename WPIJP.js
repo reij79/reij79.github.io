@@ -56,7 +56,7 @@
         TIME_PERIOD = "",
         obs = 0;
 
-        var url = "hhttp://stat.data.abs.gov.au/sdmx-json/data/LABOUR_PRICE_INDEX/2.THRPEB.1+2+7.-.1.10+20+30.Q/all?detail=Full&dimensionAtObservation=AllDimensions"
+        var url = "http://stat.data.abs.gov.au/sdmx-json/data/LABOUR_PRICE_INDEX/2.THRPEB.1+2+7.-.1.10+20+30.Q/all?detail=Full&dimensionAtObservation=AllDimensions"
 
         $.ajax({
             url: url,
