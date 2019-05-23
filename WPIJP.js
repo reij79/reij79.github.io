@@ -50,8 +50,7 @@
         var url = "http://stat.data.abs.gov.au/sdmx-json/data/LABOUR_PRICE_INDEX/2.THRPEB.1+2+7.-.1.10+20+30.Q/all?detail=Full&dimensionAtObservation=AllDimensions"
 
         $.ajax({
-            url: url,
-            type: 'GET',
+            url: 'http://stat.data.abs.gov.au/sdmx-json/data/LABOUR_PRICE_INDEX/2.THRPEB.1+2+7.-.1.10+20+30.Q/all?detail=Full&dimensionAtObservation=AllDimensions',
             dataType: 'json',
             success: function(resp) {
 		    
