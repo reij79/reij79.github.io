@@ -52,7 +52,7 @@
         $.ajax({
             url: url,
             type: 'GET',
-            dataType: 'jsonp',
+            dataType: 'json',
             success: function(resp) {
 		    
 	    var tableData = [],
