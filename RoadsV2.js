@@ -57,7 +57,7 @@
             "url": "https://api.transport.nsw.gov.au/v1/roads/spatial?format=geojson&q=select%20%2A%20from%20road_traffic_counts_station_reference%0A",
             "method": "GET",
             "headers": {
-              "Authorization": "apikey o10JorpdwvgF9yVK6TZVmLnahdB4UtNz1dO1",
+              "Authorization": "apikey 123",
               "cache-control": "no-cache"
             }
           }
